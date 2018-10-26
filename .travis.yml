@@ -1,0 +1,40 @@
+language: php
+
+php:
+  - 7.2
+
+cache:
+  directories:
+    - .composer/cache
+
+matrix:
+  fast_finish: true
+
+before_install:
+  - alias composer=composer\ --no-interaction && composer selfupdate
+
+install:
+  - travis_retry composer update --no-progress --profile --no-scripts --no-suggest
+
+jobs:
+  include:
+    - stage: "Piece of Cake"
+      name: "Piece of Cake"
+      script:
+        - bin/long-cli generate-files 1000
+        - bin/long-cli test
+    - stage: "Let's Rock"
+      name: "Let's Rock"
+      script:
+        - bin/long-cli generate-files 2000
+        - bin/long-cli test
+    - stage: "Come Get Some"
+      name: "Come Get Some"
+      script:
+        - bin/long-cli generate-files 3000
+        - bin/long-cli test
+    - stage: "Damn I'm Good"
+      name: "Damn I'm Good"
+      script:
+        - bin/long-cli generate-files 4000
+        - bin/long-cli test
