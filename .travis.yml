@@ -22,19 +22,19 @@ jobs:
       name: "Piece of Cake"
       script:
         - bin/long-cli generate-files 1000
-        - bin/long-cli test
+        - bin/long-cli test -vvv
     - stage: "Let's Rock"
       name: "Let's Rock"
       script:
         - bin/long-cli generate-files 2000
-        - bin/long-cli test
+        - bin/long-cli test -vvv
     - stage: "Come Get Some"
       name: "Come Get Some"
       script:
         - bin/long-cli generate-files 3000
-        - bin/long-cli test
+        - bin/long-cli test -vvv
     - stage: "Damn I'm Good"
       name: "Damn I'm Good"
       script:
         - bin/long-cli generate-files 4000
-        - bin/long-cli test
+        - bin/long-cli test -vvv
